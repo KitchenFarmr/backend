@@ -1,0 +1,16 @@
+.git*
+.nyc_output
+.vscode
+build
+node_modules
+tests
+.dockerignore
+.env*
+.eslint*
+.gitignore
+,prettier*
+*.yml
+Dockerfile*
+Makefile
+*.md
+webpack.config.js
