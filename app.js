@@ -1,8 +1,14 @@
 const express = require('express');
+const exphbs = require('express-handlebars')
+const fetch = require('node-fetch');
 
 const app = express();
 
 app.use(express.json());
+
+// Middleware
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
+app.set('view engine', 'handlebars')
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -10,6 +16,10 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
   next();
 });
+
+app.get('/', (req, res) => {
+  res.render("home")
+})
 
 app.listen(3000);
 
