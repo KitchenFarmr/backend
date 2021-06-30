@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  kitchenfarmr:
+    image: kitchenfarmr-test
+    build:
+        context: .
+        dockerfile: Dockerfile.dev
+    container_name: kitchenfarmr-test
+      - ./controllers:/usr/src/app/controllers
+      - ./data:/usr/src/app/data
+      - ./middleware:/usr/src/app/middleware
+      - ./models:/usr/src/app/models
+      - ./routes:/usr/src/app/routes
+      - ./tests:/usr/src/app/test
+      - ./utils:/usr/src/app/utils
+      - ./app.js:/usr/src/app/app.js
+    env_file:
+      - .env
+    ports:
+      - 3000:3000
+    command: npm run coverage
