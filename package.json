@@ -1,0 +1,38 @@
+{
+  "name": "kitchenfarmr",
+  "version": "1.0.0",
+  "description": "Your one stop shop for finding farmer's markets",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha ./tests/*.js --exit",
+    "coverage": "nyc npm run test && nyc report --reporter=text --check-coverage --lines 90",
+    "start": "nodemon app.js",
+    "start-dev": "nodemon app.js",
+    "lint": "eslint --fix \"{utils,routes,models,middleware,controllers}/*.js\" && eslint --fix ./app.js"
+  },
+  "keywords": [
+    "express",
+    "docker",
+    "docker-compose",
+    "food",
+    "groceries"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "eslint": "^7.29.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.23.4",
+    "mocha": "^9.0.1",
+    "nyc": "^15.1.0",
+    "path": "^0.12.7",
+    "webpack": "^5.41.1",
+    "webpack-cli": "^4.7.2",
+    "webpack-node-externals": "^3.0.0"
+  }
+}
