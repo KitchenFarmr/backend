@@ -1,5 +1,5 @@
 const express = require('express');
-const exphbs = require('express-handlebars')
+const exphbs = require('express-handlebars');
 const fetch = require('node-fetch');
 
 const app = express();
@@ -7,8 +7,8 @@ const app = express();
 app.use(express.json());
 
 // Middleware
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
-app.set('view engine', 'handlebars')
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.set('view engine', 'handlebars');
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -18,22 +18,19 @@ app.use((req, res, next) => {
 });
 
 app.get('/', (req, res) => {
-  res.render("home")
-})
+  res.render('home');
+});
 
 app.get('/results', (req, res) => {
   // const zipcode = req.query.zipcode
 
-  const url = "http://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=94103"
+  const url = 'http://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=94103';
   fetch(url)
-    .then(response => {
-      return response.json();
-    })
-    .then(data => {
-      res.json(data)
+    .then((response) => response.json())
+    .then((data) => {
+      res.json(data);
     });
-
-})
+});
 
 app.listen(3000);
 
