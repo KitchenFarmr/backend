@@ -21,6 +21,20 @@ app.get('/', (req, res) => {
   res.render("home")
 })
 
+app.get('/results', (req, res) => {
+  // const zipcode = req.query.zipcode
+
+  const url = "http://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=94103"
+  fetch(url)
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      res.json(data)
+    });
+
+})
+
 app.listen(3000);
 
 module.exports = app;
