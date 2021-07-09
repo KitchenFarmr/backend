@@ -4,7 +4,6 @@ const chaiHttp = require('chai-http');
 const cleaner = require('../utils');
 
 const { assert } = chai;
-const fetch = require('node-fetch');
 
 chai.config.includeStack = true;
 
