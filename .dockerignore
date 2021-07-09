@@ -13,4 +13,3 @@ tests
 Dockerfile*
 Makefile
 *.md
-webpack.config.js
