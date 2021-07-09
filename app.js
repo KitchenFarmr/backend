@@ -20,11 +20,9 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/results', (req, res) => {
-  const { zipcode } = req.query;
-
+app.get('/results/:zipcode', (req, res) => {
+  const { zipcode } = req.params;
   const url = `http://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=${zipcode}`;
-
   const getMarketDetails = async () => {
     const response = await fetch(url);
     const data = await response.json();
