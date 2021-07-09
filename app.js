@@ -1,3 +1,5 @@
+/* eslint-disable no-return-await */
+
 const express = require('express');
 const exphbs = require('express-handlebars');
 const fetch = require('node-fetch');
@@ -18,23 +20,20 @@ app.use((req, res, next) => {
   next();
 });
 
-
 app.get('/results', (req, res) => {
-  const zipcode = req.query.zipcode
+  const { zipcode } = req.query;
 
-  const url = 'http://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=94103';
+  const url = `http://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=${zipcode}`;
 
-  const get_market_details = (async () => {
-    let response = await fetch(url)
-    const data = await response.json()
-    let { results } = data
-    results = await Promise.all(results.map( async (market) => {
-      // // helper module to populate more information on each market
-      return await cleaner.execute( market )
-    }))
-    res.json(results)
-  })()
-})
+  const getMarketDetails = async () => {
+    const response = await fetch(url);
+    const data = await response.json();
+    let { results } = data;
+    results = await Promise.all(results.map(async (market) => await cleaner.execute(market)));
+    res.json(results);
+  };
+  getMarketDetails();
+});
 
 app.listen(3000);
 
