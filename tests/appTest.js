@@ -15,7 +15,6 @@ chai.use(chaiHttp);
 describe('Results page render', () => {
   // check for correct json
   it('should recieve json data', (done) => {
-    this.timeout(10000)
     chai
       .request(app)
       .get('/results/94103')
@@ -25,5 +24,5 @@ describe('Results page render', () => {
         expect(response.body).to.be.an('array');
         done();
       });
-  });
+  }).timeout(10000);
 });
