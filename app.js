@@ -1,5 +1,3 @@
-/* eslint-disable no-return-await */
-
 const express = require('express');
 const fetch = require('node-fetch');
 const cleaner = require('./utils');
@@ -23,11 +21,11 @@ app.get('/results/:zipcode', (req, res) => {
     const data = await response.json();
     let { results } = data;
     results = await Promise.all(results.map(async (market) => await cleaner.execute(market)));
-    res.json(results);
+    return res.json(results);
   };
-  getMarketDetails();
+  return getMarketDetails();
 });
 
-app.listen(3000);
+app.listen(5000);
 
 module.exports = app;
