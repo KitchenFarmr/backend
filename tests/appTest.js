@@ -1,6 +1,7 @@
 const app = require('../app.js');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
+const cleaner = require('../utils');
 
 const { assert } = chai;
 const fetch = require('node-fetch');
@@ -16,7 +17,7 @@ describe('Results page render', () => {
   it('should recieve json data', (done) => {
     chai
       .request(app)
-      .get('/results')
+      .get('/results/94103')
       .end((error, response) => {
         if (error) done(error);
         expect(response).to.have.status(200);
