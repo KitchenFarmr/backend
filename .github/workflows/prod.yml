@@ -75,7 +75,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           file: ./Dockerfile
-          tags: starlightromero/KitchenFarmr:latest
+          tags: starlightromero/kitchenfarmr-backend:latest
           push: true
 
       # - name: Notify slack success
