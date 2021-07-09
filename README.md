@@ -56,9 +56,9 @@
 
 `build`: Build development server without running the server
 
-`start`: Start development server at port `3000`
+`start`: Start development server at port `5000`
 
-`reload`: Stop development server and restart the server at port `3000`
+`reload`: Stop development server and restart the server at port `5000`
 
 `hard-reload`: Stop container, remove container, rebuild container, and start development server
 
