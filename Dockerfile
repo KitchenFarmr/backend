@@ -23,7 +23,7 @@ WORKDIR /usr/src/app
 COPY --from=build /usr/src/app/node_modules ./node_modules
 COPY --from=build /usr/src/app/build ./build
 
-HEALTHCHECK --interval=1m --timeout=5s --retries=2 \
-    CMD curl -f http://localhost:3000 || exit 1
+HEALTHCHECK --interval=5m --timeout=5s --retries=2 \
+    CMD curl -f http://localhost:5000/results/30030 || exit 1
 
 CMD [ "build/app.js" ]
