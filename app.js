@@ -1,17 +1,12 @@
 /* eslint-disable no-return-await */
 
 const express = require('express');
-const exphbs = require('express-handlebars');
 const fetch = require('node-fetch');
 const cleaner = require('./utils');
 
 const app = express();
 
 app.use(express.json());
-
-// Middleware
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
-app.set('view engine', 'handlebars');
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
