@@ -1,3 +1,5 @@
+/* eslint-disable no-return-await */
+
 const express = require('express');
 const fetch = require('node-fetch');
 const cleaner = require('./utils');
