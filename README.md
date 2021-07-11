@@ -174,6 +174,79 @@ Upon completing the feature/bugfix of the corresponding branch create a pull req
 
 ## API Documentation
 
+Base URL
+```http
+http://165.232.159.127/
+```
+
+### Get Nearby Markets
+
+#### Request
+
+```http
+GET /results/:zipcode
+```
+
+#### Response
+
+Success status code: `200`
+
+This route returns a list of farmers markets based on distance from the provided zipcode.
+
+Example response (for zipcode `12345`):
+
+```json
+[
+    {
+        "id": "1018381",
+        "marketname": "Clifton Park Farmers' Market",
+        "GoogleLink": "http://maps.google.com/?q=42.869606%2C%20-73.809271%20(%22Clifton+Park+Farmers'+Market%22)",
+        "Products": [
+            "Baked goods",
+            "Cut flowers",
+            "Eggs",
+            "Fresh fruit and vegetables",
+            "Honey",
+            "Canned or preserved fruits, vegetables, jams, jellies, preserves, salsas, pickles, dried fruit, etc.",
+            "Maple syrup and/or maple products",
+            "Meat",
+            "Prepared foods (for immediate consumption)"
+        ],
+        "distance_from_zip": "7.7",
+        "street": "971 Route 146",
+        "city": "Shenendehowa United Methodist Church parking lot ",
+        "state": "Clifton Park",
+        "zipcode": "New York",
+        "yearly_schedule": "06/04/2018 to 10/29/2018",
+        "weekly_schedule": "Mon: 2:00 PM-5:00 PM"
+    },
+    {
+        "id": "1001925",
+        "marketname": "Voorheesville Farmers Market",
+        "GoogleLink": "http://maps.google.com/?q=42.649656%2C%20-73.930027%20(%22Voorheesville+Farmers+Market%22)",
+        "Products": [
+            "Baked goods",
+            "Cut flowers",
+            "Eggs",
+            "Fresh fruit and vegetables",
+            "Fresh and/or dried herbs",
+            "Honey",
+            "Maple syrup and/or maple products",
+            "Plants in containers",
+            "Prepared foods (for immediate consumption)",
+            "Soap and/or body care products"
+        ],
+        "distance_from_zip": "11.5",
+        "street": "68 Maple Ave.",
+        "city": "Voorheesville",
+        "state": "New York",
+        "zipcode": "12186",
+        "yearly_schedule": "06/16/2021 to 06/16/2021",
+        "weekly_schedule": "Wed: 3:30 PM-6:30 PM"
+    },
+    ...
+]
+```
 
 ## Running Tests
 
